@@ -1,16 +1,17 @@
 <h1>📞TelephoneScheduling BackEnd</h1>
 Este projeto foi desenvolvido em Java com o framework Spring Boot na versão 3.4.3, utilizando algumas bibliotecas para facilitar o desenvolvimento.
 
-<h2>Tecnologias e Bibliotecas Utilizadas</h2>
-Java: 17
-Spring Boot: 3.4.3
-Maven: Para gerenciamento de dependências
-Spring Data JPA: Para integração com o banco de dados
-Spring Web: Para criação de APIs REST
-Spring DevTools: Para facilitar o desenvolvimento e recarregar a aplicação automaticamente
-PostgreSQL Driver: Para conexão com o banco de dados PostgreSQL
-Lombok: Para reduzir o boilerplate de código, como getters, setters e construtores
-Spring Boot Starter Test: Para criação de testes unitários e de integração
+## Tecnologias e Bibliotecas Utilizadas
+
+- **Java**: 17  
+- **Spring Boot**: 3.4.3  
+- **Maven**: Para gerenciamento de dependências  
+- **Spring Data JPA**: Para integração com o banco de dados  
+- **Spring Web**: Para criação de APIs REST  
+- **Spring DevTools**: Para facilitar o desenvolvimento e recarregar a aplicação automaticamente  
+- **PostgreSQL Driver**: Para conexão com o banco de dados PostgreSQL  
+- **Lombok**: Para reduzir o boilerplate de código, como getters, setters e construtores  
+- **Spring Boot Starter Test**: Para criação de testes unitários e de integração  
 
 <h2>🛠️ Funcionalidades</h2>
 Agendamento de chamadas telefônicas
