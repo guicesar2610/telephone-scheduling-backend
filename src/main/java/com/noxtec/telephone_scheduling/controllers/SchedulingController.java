@@ -20,18 +20,27 @@ public class SchedulingController {
     @PostMapping
     public ResponseEntity<?> createScheduling(@RequestBody SchedulingRequest schedulingRequest) {
         if (schedulingRepository.findByCellphone(schedulingRequest.cellphone()).isPresent()) {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+            return ResponseEntity.status(HttpStatus.CONFLICT)
                     .body("O celular já foi cadastrado.");
         }
+
         Scheduling scheduling = new Scheduling(schedulingRequest);
         schedulingRepository.save(scheduling);
+
         return ResponseEntity.status(HttpStatus.CREATED).body(scheduling);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Scheduling> updateScheduling(
+    public ResponseEntity<?> updateScheduling(
             @PathVariable Long id,
             @RequestBody SchedulingRequest schedulingRequest) {
+
+        Optional<Scheduling> existingScheduling = schedulingRepository.findByCellphone(schedulingRequest.cellphone());
+
+        if (existingScheduling.isPresent() && !existingScheduling.get().getId().equals(id)) {
+            return ResponseEntity.status(HttpStatus.CONFLICT)
+                    .body("O celular já foi cadastrado.");
+        }
 
         return schedulingRepository.findById(id)
                 .map(scheduling -> {
@@ -46,7 +55,7 @@ public class SchedulingController {
                 })
                 .orElseGet(() -> ResponseEntity.notFound().build());
     }
-
+    
     @GetMapping
     public  ResponseEntity listScheduling(){
         var scheduling = schedulingRepository.findAll();
